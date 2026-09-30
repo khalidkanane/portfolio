@@ -5,12 +5,16 @@
 
 // Project type for portfolio projects
 export interface Project {
-  id: string;
+  slug: string;
+  number: string;
   title: string;
   description: string;
-  shortDescription: string;
-  image: string;
   technologies: string[];
+  variant: "library" | "food" | "ml";
+  year: string;
+  role: string;
+  overview: string;
+  highlights: string[];
   githubUrl?: string;
   liveUrl?: string;
   featured: boolean;

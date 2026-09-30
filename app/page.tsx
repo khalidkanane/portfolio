@@ -1,73 +1,40 @@
 import Link from "next/link";
+import { PROJECTS } from "@/lib/projects";
 
-const technologies = ["Next.js", "TypeScript", "Laravel", "PostgreSQL"];
+const skills = {
+  Frontend: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+  Backend: ["Laravel", "Node.js", "REST APIs", "Authentication"],
+  Database: ["PostgreSQL", "MySQL", "Prisma", "Data modeling"],
+  Tools: ["Git", "Docker", "Figma", "Vercel"],
+};
+
+function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
+  return <div className="section-heading"><p className="eyebrow">{eyebrow}</p><h2>{title}</h2></div>;
+}
+
+function ProjectPreview({ variant }: { variant: string }) {
+  return <div className={`project-preview project-preview-${variant}`} aria-hidden="true"><div className="preview-topbar"><span /><span /><span /></div><div className="preview-content">
+    {variant === "library" && <><div className="preview-sidebar" /><div className="book-row"><i /><i /><i /></div><div className="book-row short"><i /><i /><i /></div></>}
+    {variant === "food" && <><div className="food-title" /><div className="food-grid"><i /><i /><i /><i /></div></>}
+    {variant === "ml" && <><div className="chart chart-large" /><div className="chart-row"><div className="chart" /><div className="chart" /></div></>}
+  </div></div>;
+}
 
 export default function Home() {
-  return (
-    <main className="flex-1">
-      <section className="mx-auto grid min-h-[calc(100vh-5rem)] max-w-6xl items-center gap-16 px-6 py-20 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-24 lg:px-12">
-        <div>
-          <p className="mb-6 flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.22em] text-blue-600 dark:text-blue-400">
-            <span className="h-px w-8 bg-blue-600 dark:bg-blue-400" />
-            Full-Stack Developer
-          </p>
+  return <main>
+    <section id="home" className="hero section-shell"><div className="hero-copy"><p className="eyebrow">Available for opportunities <span>•</span> 2026</p><h1>Hi, I&apos;m <em>Khalid</em>.<br />I build things for the web.</h1><p className="hero-lede">Full-Stack Developer building modern web applications with Next.js, TypeScript, Laravel, and PostgreSQL.</p><div className="button-row"><Link className="button button-primary" href="#projects">View Projects <span>↗</span></Link><a className="button button-quiet" href="https://github.com" target="_blank" rel="noreferrer">GitHub <span>↗</span></a></div><div className="tech-strip">Next.js <span>•</span> TypeScript <span>•</span> Laravel <span>•</span> PostgreSQL</div></div><div className="hero-terminal" aria-label="A code preview showing Khalid&apos;s stack"><div className="terminal-bar"><span /><span /><span /><small>khalid.config.ts</small></div><pre><code><span className="code-muted">{"// building things people use"}</span>{"\n"}<span className="code-keyword">const</span> khalid = {'{'}{"\n"}  role: <span className="code-string">&quot;Full-Stack Dev&quot;</span>,{"\n"}  stack: [<span className="code-string">&quot;Next.js&quot;</span>, <span className="code-string">&quot;Laravel&quot;</span>],{"\n"}  openToWork: <span className="code-value">true</span>{"\n"}{'}'}</code></pre><div className="terminal-glow" /></div><a href="#about" className="scroll-cue" aria-label="Scroll to about section">↓ <span>scroll to explore</span></a></section>
 
-          <h1 className="max-w-3xl text-5xl font-bold leading-[1.05] tracking-tight text-slate-950 sm:text-7xl dark:text-white">
-            Khalid Kanane
-          </h1>
+    <section id="about" className="section-shell split-section"><SectionHeading eyebrow="02 / About me" title="A developer who cares about the details." /><div className="about-copy"><p>I&apos;m Khalid, a full-stack developer who enjoys turning complex problems into simple, useful products.</p><p>I care about the space where thoughtful design meets solid engineering. Right now, I&apos;m deepening my knowledge of scalable systems, accessible interfaces, and the craft of shipping work that lasts.</p><Link className="text-link" href="#contact">Let&apos;s work together <span>↗</span></Link></div></section>
 
-          <p className="mt-8 max-w-xl text-lg leading-8 text-slate-600 sm:text-xl dark:text-slate-300">
-            I build reliable, user-focused web applications from the interface
-            to the database.
-          </p>
+    <section id="skills" className="section-shell skills-section"><SectionHeading eyebrow="03 / Skills" title="The tools in my toolbox." /><div className="skills-grid">{Object.entries(skills).map(([category, items]) => <div className="skill-group" key={category}><h3>{category}</h3><ul>{items.map((skill) => <li key={skill}>{skill}</li>)}</ul></div>)}</div></section>
 
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/projects"
-              className="rounded-md bg-blue-600 px-6 py-3 text-center font-semibold text-white transition-colors hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-            >
-              View my projects
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-md border border-slate-300 px-6 py-3 text-center font-semibold text-slate-900 transition-colors hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 dark:border-slate-700 dark:text-white dark:hover:bg-slate-900"
-            >
-              Get in touch
-            </Link>
-          </div>
-        </div>
+    <section id="projects" className="section-shell projects-section"><div className="projects-intro"><SectionHeading eyebrow="04 / Selected work" title="Projects I&apos;m proud of." /><p>A few things I&apos;ve built while learning, experimenting, and solving real problems.</p></div><div className="project-list">{PROJECTS.map((project) => <article className="project-card" key={project.slug}><div className="project-info"><span className="project-number">{project.number}</span><h3>{project.title}</h3><p>{project.description}</p><div className="tag-list">{project.technologies.map((tag) => <span key={tag}>{tag}</span>)}</div><Link className="text-link" href={`/projects/${project.slug}`}>View project <span>↗</span></Link></div><ProjectPreview variant={project.variant} /></article>)}</div></section>
 
-        <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 dark:border-slate-800 dark:bg-slate-900">
-          <div className="absolute right-0 top-0 h-24 w-24 border-b border-l border-blue-100 dark:border-blue-950" />
-          <div className="relative">
-            <div className="flex items-center justify-between border-b border-slate-200 pb-5 dark:border-slate-800">
-              <span className="font-mono text-sm text-slate-500 dark:text-slate-400">
-                toolkit.ts
-              </span>
-              <span className="text-xs font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
-                Available
-              </span>
-            </div>
+    <section id="experience" className="section-shell timeline-section"><SectionHeading eyebrow="05 / Experience" title="Where I&apos;ve been learning." /><div className="timeline"><div className="timeline-item"><span>2024 — Present</span><div><h3>Independent Full-Stack Developer</h3><p>Building personal products, collaborating on client work, and sharpening the full development lifecycle.</p></div></div><div className="timeline-item"><span>2023 — 2024</span><div><h3>Web Development Projects</h3><p>Explored modern JavaScript frameworks, API design, relational databases, and deployment workflows.</p></div></div></div></section>
 
-            <p className="mt-8 text-sm font-medium uppercase tracking-widest text-slate-500 dark:text-slate-400">
-              Technologies I work with
-            </p>
-            <ul className="mt-5 divide-y divide-slate-200 dark:divide-slate-800" aria-label="Technologies">
-              {technologies.map((technology, index) => (
-                <li
-                  key={technology}
-                  className="flex items-center justify-between py-4 text-lg font-medium text-slate-800 dark:text-slate-100"
-                >
-                  <span>{technology}</span>
-                  <span className="font-mono text-xs text-slate-400 dark:text-slate-500">
-                    0{index + 1}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
+    <section id="education" className="section-shell education-section"><SectionHeading eyebrow="06 / Education" title="Always still learning." /><div className="education-line"><div><h3>Computer Science &amp; Web Development</h3><p>Focused on building a strong foundation in software engineering, data structures, and the web platform.</p></div><span>Ongoing</span></div></section>
+
+    <section id="contact" className="contact-section"><div className="section-shell contact-inner"><SectionHeading eyebrow="07 / Contact" title="Let&apos;s build something useful." /><p>I&apos;m open to conversations about interesting projects, collaborations, and opportunities.</p><div className="contact-links"><a href="mailto:your.email@example.com">Email <span>↗</span></a><a href="https://github.com" target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a></div></div></section>
+    <footer className="site-footer section-shell"><span>© 2026 Khalid Kanane</span><span>Designed &amp; built with care</span><a href="#home">Back to top ↑</a></footer>
+  </main>;
 }
