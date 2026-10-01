@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProjectBySlug, PROJECTS } from "@/lib/projects";
+import { Badge } from "@/components/ui/badge";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -50,7 +51,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="project-meta">
           <div><span>Year</span><strong>{project.year}</strong></div>
           <div><span>Role</span><strong>{project.role}</strong></div>
-          <div><span>Stack</span><strong>{project.technologies.join(" / ")}</strong></div>
+          <div><span>Stack</span><strong className="project-tech-list">{project.technologies.map((technology) => <Badge key={technology} variant="secondary">{technology}</Badge>)}</strong></div>
         </div>
         <div className="project-detail-copy">
           <p className="eyebrow">About the project</p>

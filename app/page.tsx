@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PROJECTS } from "@/lib/projects";
+import { Badge } from "@/components/ui/badge";
 
 const skills = {
   Frontend: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
@@ -28,7 +29,7 @@ export default function Home() {
 
     <section id="skills" className="section-shell skills-section"><SectionHeading eyebrow="03 / Skills" title="The tools in my toolbox." /><div className="skills-grid">{Object.entries(skills).map(([category, items]) => <div className="skill-group" key={category}><h3>{category}</h3><ul>{items.map((skill) => <li key={skill}>{skill}</li>)}</ul></div>)}</div></section>
 
-    <section id="projects" className="section-shell projects-section"><div className="projects-intro"><SectionHeading eyebrow="04 / Selected work" title="Projects I&apos;m proud of." /><p>A few things I&apos;ve built while learning, experimenting, and solving real problems.</p></div><div className="project-list">{PROJECTS.map((project) => <article className="project-card" key={project.slug}><div className="project-info"><span className="project-number">{project.number}</span><h3>{project.title}</h3><p>{project.description}</p><div className="tag-list">{project.technologies.map((tag) => <span key={tag}>{tag}</span>)}</div><Link className="text-link" href={`/projects/${project.slug}`}>View project <span>↗</span></Link></div><ProjectPreview variant={project.variant} /></article>)}</div></section>
+    <section id="projects" className="section-shell projects-section"><div className="projects-intro"><SectionHeading eyebrow="04 / Selected work" title="Projects I&apos;m proud of." /><p>A few things I&apos;ve built while learning, experimenting, and solving real problems.</p></div><div className="project-list">{PROJECTS.map((project) => <article className="project-card" key={project.slug}><div className="project-info"><span className="project-number">{project.number}</span><h3>{project.title}</h3><p>{project.description}</p><div className="tag-list">{project.technologies.map((tag) => <Badge key={tag} variant="secondary">{tag}</Badge>)}</div><Link className="text-link" href={`/projects/${project.slug}`}>View project <span>↗</span></Link></div><ProjectPreview variant={project.variant} /></article>)}</div></section>
 
     <section id="experience" className="section-shell timeline-section"><SectionHeading eyebrow="05 / Experience" title="Where I&apos;ve been learning." /><div className="timeline"><div className="timeline-item"><span>2024 — Present</span><div><h3>Independent Full-Stack Developer</h3><p>Building personal products, collaborating on client work, and sharpening the full development lifecycle.</p></div></div><div className="timeline-item"><span>2023 — 2024</span><div><h3>Web Development Projects</h3><p>Explored modern JavaScript frameworks, API design, relational databases, and deployment workflows.</p></div></div></div></section>
 
