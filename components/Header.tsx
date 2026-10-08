@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Skills", href: "/skills" },
+  { label: "Projects", href: "/projects" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
@@ -29,7 +29,7 @@ export default function Header() {
             </li>
           ))}
         </ul>
-        <Link className="hire-link" href="#contact">Hire me <span>↗</span></Link>
+        <Link className="hire-link" href="/contact">Hire me <span>↗</span></Link>
       </nav>
     </header>
   );

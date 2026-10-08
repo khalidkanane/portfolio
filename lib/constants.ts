@@ -6,21 +6,21 @@
 // Site metadata
 export const SITE_NAME = "Khalid Kanane Portfolio";
 export const SITE_DESCRIPTION =
-  "Full-Stack Developer portfolio built with Next.js, TypeScript, and Tailwind CSS";
+  "Portfolio of Khalid Kanane, a Full Stack Developer and AI enthusiast building intelligent and scalable applications.";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 // Author information
 export const AUTHOR_NAME = "Khalid Kanane";
 export const AUTHOR_TITLE = "Full-Stack Developer";
 export const AUTHOR_BIO =
-  "A full-stack developer passionate about building modern, scalable, and user-friendly web applications.";
+  "Full Stack Developer and AI enthusiast, Computer Engineering student, and builder interested in AI, Data Science, Machine Learning, and scalable web applications.";
 
 // Social links (will be used in footer and contact sections)
 export const SOCIAL_LINKS = {
-  github: "https://github.com",
-  linkedin: "https://linkedin.com",
-  twitter: "https://twitter.com",
-  email: "your.email@example.com",
+  github: "https://github.com/khalidkanane",
+  linkedin: "https://www.linkedin.com/in/khalid-kanane-4578bb246/",
+  kaggle: "https://www.kaggle.com/khalidkanane",
+  email: "khalidkanane1@gmail.com",
 };
 
 // Navigation items

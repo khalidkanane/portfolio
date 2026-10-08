@@ -33,7 +33,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <main className="project-detail">
       <section className="section-shell project-detail-hero">
-        <Link className="back-link" href="/#projects">← Back to projects</Link>
+        <Link className="back-link" href="/projects">← Back to projects</Link>
         <p className="eyebrow">{project.number} / Case study</p>
         <div className="project-detail-heading">
           <div>
