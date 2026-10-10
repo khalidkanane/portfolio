@@ -27,9 +27,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${firaSans.variable} ${roboto.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body id="top" className="min-h-full flex flex-col">
         <Header />
-        {children}
+        <div className="flex-1">{children}</div>
+        <footer className="site-footer section-shell">
+          <span>© 2026 Khalid Kanane</span>
+          <span>Designed &amp; built with care</span>
+          <a href="#top">Back to top ↑</a>
+        </footer>
       </body>
     </html>
   );
