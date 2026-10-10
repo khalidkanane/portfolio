@@ -21,6 +21,7 @@ export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/in/khalid-kanane-4578bb246/",
   kaggle: "https://www.kaggle.com/khalidkanane",
   email: "khalidkanane1@gmail.com",
+  cv: "/Khalid-Kanane-CV.pdf",
 };
 
 // Navigation items

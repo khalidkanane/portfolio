@@ -1,4 +1,4 @@
-import { SkillsPage } from "@/components/PortfolioSections";
+import SkillsPage from "@/components/SkillsPage";
 
 export default function Page() {
   return <SkillsPage />;

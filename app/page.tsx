@@ -16,7 +16,7 @@ export default function Home() {
           <p className="eyebrow">Software Developer</p>
           <h1>
             Hello I&apos;m
-            <span>Luke Coleman</span>
+            <span>Khalid Kanane</span>
           </h1>
           <p className="hero-lede">
             I excel at crafting elegant digital experiences and I am proficient
@@ -24,18 +24,18 @@ export default function Home() {
           </p>
 
           <div className="hero-actions">
-            <Link className="hero-button primary" href="/projects">
+            <a className="hero-button primary" href={SOCIAL_LINKS.cv} target="_blank" rel="noreferrer">
               Download CV <span>↗</span>
-            </Link>
+            </a>
             <div className="social-buttons" aria-label="Social links">
               <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" aria-label="GitHub">
                 G
               </a>
-              <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
                 in
               </a>
-              <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" aria-label="X">
-                X
+              <a href={SOCIAL_LINKS.kaggle} target="_blank" rel="noreferrer" aria-label="Kaggle">
+                K
               </a>
             </div>
           </div>
