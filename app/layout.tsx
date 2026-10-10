@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Fira_Sans, Roboto } from "next/font/google";
+import { Manrope, Sora } from "next/font/google";
 import Header from "@/components/Header";
 import "./globals.css";
 
-const firaSans = Fira_Sans({
-  variable: "--font-fira-sans",
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const roboto = Roboto({
-  variable: "--font-roboto",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${firaSans.variable} ${roboto.variable} h-full antialiased`}
+      className={`${sora.variable} ${manrope.variable} h-full antialiased`}
     >
       <body id="top" className="min-h-full flex flex-col">
         <Header />
