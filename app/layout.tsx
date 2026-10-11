@@ -32,8 +32,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <div className="flex-1">{children}</div>
         <footer className="site-footer section-shell">
           <span>© 2026 Khalid Kanane</span>
-          <span>Designed &amp; built with care</span>
-          <a href="#top">Back to top ↑</a>
+          <span className="p-0.5">Designed &amp; built with care </span>
+          <a href="#top" > Back to top ↑</a>
         </footer>
       </body>
     </html>
