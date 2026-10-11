@@ -16,7 +16,7 @@ export default function Header() {
           href="/"
           className="brand"
         >
-          Khalid Kanane <span>●</span>
+          KK<span>—</span>
         </Link>
 
         <ul className="nav-links">
