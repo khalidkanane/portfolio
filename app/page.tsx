@@ -5,12 +5,21 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { PROJECTS } from "@/lib/projects";
 import { SOCIAL_LINKS } from "@/lib/constants";
+import type { IconType } from "react-icons";
+import { FiArrowUpRight, FiAtSign, FiCode, FiCpu, FiDownload } from "react-icons/fi";
+import { FaAws, FaGitAlt, FaJs, FaNodeJs, FaPhp, FaPython, FaReact } from "react-icons/fa6";
 import {
-  ArrowUpRight,
-  AtSign,
-  Code2,
-  Download,
-} from "lucide-react";
+  SiFirebase,
+  SiGithub,
+  SiLaravel,
+  SiMongodb,
+  SiMysql,
+  SiNextdotjs,
+  SiOpencv,
+  SiPostgresql,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 
 const stats = [
   { value: "12", label: "Years of experience" },
@@ -20,19 +29,31 @@ const stats = [
 ];
 
 const skillHighlights = [
-  { name: "Tailwind", icon: "TW" },
-  { name: "MongoDB", icon: "MD" },
-  { name: "MySQL", icon: "MS" },
-  { name: "PostgreSQL", icon: "PG" },
-  { name: "Git", icon: "GT" },
-  { name: "AWS", icon: "AWS" },
+  { name: "Tailwind", icon: SiTailwindcss },
+  { name: "MongoDB", icon: SiMongodb },
+  { name: "MySQL", icon: SiMysql },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "Git", icon: FaGitAlt },
+  { name: "AWS", icon: FaAws },
 ];
 
 const skillGroups = [
-  { title: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-  { title: "Backend", items: ["Laravel", "Node.js", "PHP", "REST APIs"] },
-  { title: "AI & Data", items: ["Python", "Machine Learning", "OpenCV", "Gemini API"] },
-  { title: "Tools", items: ["Git", "GitHub", "Firebase", "PostgreSQL"] },
+  {
+    title: "Frontend",
+    items: [["React", FaReact], ["Next.js", SiNextdotjs], ["TypeScript", SiTypescript], ["Tailwind CSS", SiTailwindcss]] as [string, IconType][],
+  },
+  {
+    title: "Backend",
+    items: [["Laravel", SiLaravel], ["Node.js", FaNodeJs], ["PHP", FaPhp], ["REST APIs", FiCode]] as [string, IconType][],
+  },
+  {
+    title: "AI & Data",
+    items: [["Python", FaPython], ["Machine Learning", FiCpu], ["OpenCV", SiOpencv], ["Gemini API", FiCpu]] as [string, IconType][],
+  },
+  {
+    title: "Tools",
+    items: [["Git", FaGitAlt], ["GitHub", SiGithub], ["Firebase", SiFirebase], ["PostgreSQL", SiPostgresql]] as [string, IconType][],
+  },
 ];
 
 const academicSlides = [
@@ -120,17 +141,17 @@ export default function Home() {
               whileHover={{ y: -3, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Download aria-hidden="true" /> Download CV <ArrowUpRight aria-hidden="true" />
+              <FiDownload aria-hidden="true" /> Download CV <FiArrowUpRight aria-hidden="true" />
             </motion.a>
             <motion.div className="social-buttons" aria-label="Social links" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.5 }}>
               <motion.a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" aria-label="GitHub" whileHover={{ y: -4, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
-                <Code2 aria-hidden="true" />
+                <FiCode aria-hidden="true" />
               </motion.a>
               <motion.a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" whileHover={{ y: -4, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
-                <AtSign aria-hidden="true" />
+                <FiAtSign aria-hidden="true" />
               </motion.a>
               <motion.a href={SOCIAL_LINKS.kaggle} target="_blank" rel="noreferrer" aria-label="Kaggle" whileHover={{ y: -4, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
-                <ArrowUpRight aria-hidden="true" />
+                <FiArrowUpRight aria-hidden="true" />
               </motion.a>
             </motion.div>
           </div>
@@ -279,12 +300,15 @@ export default function Home() {
         </div>
 
         <div className="tech-banner" aria-label="Technology stack list">
-          {skillHighlights.map((skill) => (
-            <div className="tech-pill" key={skill.name}>
-              <span className="tech-icon">{skill.icon}</span>
-              {skill.name}
-            </div>
-          ))}
+          {skillHighlights.map((skill) => {
+            const Icon = skill.icon;
+            return (
+              <div className="tech-pill" key={skill.name}>
+                <span className="tech-icon"><Icon aria-hidden="true" /></span>
+                {skill.name}
+              </div>
+            );
+          })}
         </div>
 
         <div className="skill-grid">
@@ -292,8 +316,8 @@ export default function Home() {
             <div className="skill-card" key={group.title}>
               <h3>{group.title}</h3>
               <ul>
-                {group.items.map((item) => (
-                  <li key={item}>{item}</li>
+                {group.items.map(([name, Icon]) => (
+                  <li key={name}><Icon aria-hidden="true" /> {name}</li>
                 ))}
               </ul>
             </div>
