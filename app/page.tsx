@@ -1,9 +1,16 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { PROJECTS } from "@/lib/projects";
 import { SOCIAL_LINKS } from "@/lib/constants";
+import {
+  ArrowUpRight,
+  AtSign,
+  Code2,
+  Download,
+} from "lucide-react";
 
 const stats = [
   { value: "12", label: "Years of experience" },
@@ -28,7 +35,59 @@ const skillGroups = [
   { title: "Tools", items: ["Git", "GitHub", "Firebase", "PostgreSQL"] },
 ];
 
+const academicSlides = [
+  {
+    period: "2023 — Present",
+    title: "Computer Engineering",
+    summary:
+      "Building a strong foundation in software engineering, algorithms, systems design, and practical application development.",
+    imageLabel: "University / campus image",
+    resume: [
+      "Software engineering fundamentals",
+      "Systems thinking and architecture",
+      "Problem solving through projects",
+    ],
+    badge: "Academic base",
+  },
+  {
+    period: "Current focus",
+    title: "Artificial Intelligence & Data",
+    summary:
+      "Exploring machine learning, computer vision, and data-driven workflows through experiments and portfolio projects.",
+    imageLabel: "Lab / research space image",
+    resume: [
+      "Python and data workflow practice",
+      "Machine learning and computer vision",
+      "AI-powered product ideas",
+    ],
+    badge: "Research focus",
+  },
+  {
+    period: "Alongside my studies",
+    title: "Learning by Building",
+    summary:
+      "Turning academic concepts into real web products using modern frontend, backend, database, and deployment tools.",
+    imageLabel: "Project / workspace image",
+    resume: [
+      "Next.js, TypeScript, and React",
+      "Laravel, PostgreSQL, and APIs",
+      "Shipping practical portfolio projects",
+    ],
+    badge: "Applied work",
+  },
+];
+
 export default function Home() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % academicSlides.length);
+    }, 5500);
+
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <main className="home-page">
       <div className="bg-orb orb-1" aria-hidden="true" />
@@ -61,17 +120,17 @@ export default function Home() {
               whileHover={{ y: -3, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Download CV <span>↗</span>
+              <Download aria-hidden="true" /> Download CV <ArrowUpRight aria-hidden="true" />
             </motion.a>
             <motion.div className="social-buttons" aria-label="Social links" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.5 }}>
               <motion.a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" aria-label="GitHub" whileHover={{ y: -4, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
-                G
+                <Code2 aria-hidden="true" />
               </motion.a>
               <motion.a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" whileHover={{ y: -4, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
-                in
+                <AtSign aria-hidden="true" />
               </motion.a>
               <motion.a href={SOCIAL_LINKS.kaggle} target="_blank" rel="noreferrer" aria-label="Kaggle" whileHover={{ y: -4, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
-                K
+                <ArrowUpRight aria-hidden="true" />
               </motion.a>
             </motion.div>
           </div>
@@ -141,6 +200,75 @@ export default function Home() {
               CV <span>↗</span>
             </a>
           </div>
+        </div>
+      </section>
+
+      <section className="home-section section-shell academic-showcase" aria-label="Academic story section">
+        <div className="section-header with-link">
+          <div>
+            <p className="eyebrow small">Academic story</p>
+            <h2>My journey in slides.</h2>
+          </div>
+          <div className="academic-nav">
+            <button
+              type="button"
+              className="academic-nav-button"
+              onClick={() => setActiveSlide((current) => (current - 1 + academicSlides.length) % academicSlides.length)}
+              aria-label="Previous academic slide"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              className="academic-nav-button"
+              onClick={() => setActiveSlide((current) => (current + 1) % academicSlides.length)}
+              aria-label="Next academic slide"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        <div className="academic-slider">
+          <motion.div
+            className="academic-track"
+            animate={{ x: `-${activeSlide * 100}%` }}
+            transition={{ type: "spring", stiffness: 90, damping: 18 }}
+          >
+            {academicSlides.map((slide) => (
+              <article className="academic-slide" key={slide.title}>
+                <div className="academic-slide-media">
+                  <span className="academic-slide-badge">{slide.badge}</span>
+                  <div className="academic-media-placeholder">
+                    <span>{slide.imageLabel}</span>
+                  </div>
+                </div>
+
+                <div className="academic-slide-copy">
+                  <span className="academic-slide-period">{slide.period}</span>
+                  <h3>{slide.title}</h3>
+                  <p>{slide.summary}</p>
+                  <ul>
+                    {slide.resume.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </motion.div>
+        </div>
+
+        <div className="academic-dots" aria-label="Academic slide indicators">
+          {academicSlides.map((slide, index) => (
+            <button
+              key={slide.title}
+              type="button"
+              className={index === activeSlide ? "academic-dot active" : "academic-dot"}
+              onClick={() => setActiveSlide(index)}
+              aria-label={`Show slide ${index + 1}: ${slide.title}`}
+            />
+          ))}
         </div>
       </section>
 

@@ -14,6 +14,7 @@ export const AUTHOR_NAME = "Khalid Kanane";
 export const AUTHOR_TITLE = "Full-Stack Developer";
 export const AUTHOR_BIO =
   "Full Stack Developer and AI enthusiast, Computer Engineering student, and builder interested in AI, Data Science, Machine Learning, and scalable web applications.";
+export const AUTHOR_LOCATION = "Agadir, Morocco";
 
 // Social links (will be used in footer and contact sections)
 export const SOCIAL_LINKS = {
