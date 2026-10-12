@@ -1366,6 +1366,29 @@ body {
 .skill-card li svg { color: var(--reference-cyan); flex: 0 0 auto; height: 0.9rem; width: 0.9rem; }
 .tag-list span { background: #e8f3ff; border-color: #c9e2f8; color: var(--reference-cyan); }
 
+.github-section { background: linear-gradient(180deg, #f7fbff, #edf7ff); }
+.github-activity { margin-top: 1rem; }
+.github-summary { align-items: end; display: flex; gap: 2rem; justify-content: space-between; }
+.github-summary h2 { color: var(--reference-text); font-size: clamp(2rem, 4vw, 3.7rem); margin: 0.5rem 0 0; max-width: 700px; }
+.github-summary .text-link-home { align-items: center; display: inline-flex; gap: 0.35rem; white-space: nowrap; }
+.github-metrics { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); margin: 2.5rem 0; }
+.github-metrics div { align-items: center; background: #fff; border: 1px solid var(--reference-line); border-radius: 1rem; display: grid; gap: 0.2rem; padding: 1.3rem; }
+.github-metrics svg { color: var(--reference-cyan); height: 1.2rem; width: 1.2rem; }
+.github-metrics strong { color: var(--reference-text); font-size: 1.8rem; }
+.github-metrics span, .github-commit small, .github-repository small { color: var(--reference-muted); font-size: 0.75rem; }
+.github-content { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.github-repositories, .github-commits { background: rgba(255,255,255,0.8); border: 1px solid var(--reference-line); border-radius: 1rem; padding: 1.4rem; }
+.github-content h3 { color: var(--reference-text); font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; margin: 0 0 1rem; }
+.github-repository, .github-commit { align-items: center; border-top: 1px solid #e4eef8; display: flex; gap: 0.8rem; justify-content: space-between; padding: 0.9rem 0; }
+.github-repository:first-of-type, .github-commit:first-of-type { border-top: 0; padding-top: 0; }
+.github-repository span, .github-commit span { display: grid; gap: 0.25rem; min-width: 0; }
+.github-repository strong, .github-commit strong { color: #294766; font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.github-repository svg, .github-commit svg { color: var(--reference-cyan); flex: 0 0 auto; height: 1rem; width: 1rem; }
+.github-status { background: #fff; border: 1px solid var(--reference-line); border-radius: 1rem; color: var(--reference-muted); padding: 1.2rem; }
+.github-status a { align-items: center; color: var(--reference-cyan); display: inline-flex; gap: 0.25rem; }
+.github-status a svg { height: 0.85rem; width: 0.85rem; }
+.projects-github { border-top: 1px solid var(--reference-line); margin-top: 5rem; padding-top: 5rem; }
+
 .site-footer {
   background: linear-gradient(135deg, #071c3a 0%, #0b3b70 52%, #1266a8 100%);
   border-top: 0;
@@ -2008,4 +2031,7 @@ body {
   .academic-step { padding-left: 1.6rem; }
   .academic-step-content { padding: 1.25rem; }
   .academic-step p { font-size: 0.88rem; }
+  .github-summary { align-items: flex-start; flex-direction: column; }
+  .github-metrics, .github-content { grid-template-columns: 1fr; }
+  .projects-github { margin-top: 3rem; padding-top: 3rem; }
 }

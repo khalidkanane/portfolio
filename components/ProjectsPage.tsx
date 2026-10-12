@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { PROJECTS } from "@/lib/projects";
+import GitHubActivity from "@/components/GitHubActivity";
 
 function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
@@ -91,6 +92,9 @@ export default function ProjectsPage() {
               <ProjectPreview variant={project.variant} />
             </article>
           ))}
+        </div>
+        <div className="projects-github">
+          <GitHubActivity />
         </div>
       </section>
     </main>

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { PROJECTS } from "@/lib/projects";
 import { SOCIAL_LINKS } from "@/lib/constants";
+import GitHubActivity from "@/components/GitHubActivity";
 import type { IconType } from "react-icons";
 import { FiArrowUpRight, FiAtSign, FiCode, FiCpu, FiDownload } from "react-icons/fi";
 import { FaAws, FaGitAlt, FaJs, FaNodeJs, FaPhp, FaPython, FaReact } from "react-icons/fa6";
@@ -358,6 +359,10 @@ export default function Home() {
             </motion.article>
           ))}
         </div>
+      </section>
+
+      <section className="home-section section-shell github-section" aria-label="GitHub activity">
+        <GitHubActivity />
       </section>
     </main>
   );
