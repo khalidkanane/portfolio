@@ -1360,7 +1360,10 @@ body {
 
 .tech-pill { color: #294766; }
 .tech-icon { background: #e8f3ff; border-color: #c9e2f8; color: var(--reference-cyan); }
+.tech-icon svg { height: 1rem; width: 1rem; }
 .skill-card li { border-top-color: #e4eef8; }
+.skill-card li { align-items: center; display: flex; gap: 0.55rem; }
+.skill-card li svg { color: var(--reference-cyan); flex: 0 0 auto; height: 0.9rem; width: 0.9rem; }
 .tag-list span { background: #e8f3ff; border-color: #c9e2f8; color: var(--reference-cyan); }
 
 .site-footer {
