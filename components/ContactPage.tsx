@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { SOCIAL_LINKS } from "@/lib/constants";
-import { ArrowUpRight, AtSign, Clock3, Send } from "lucide-react";
+import { FiArrowUpRight, FiAtSign, FiClock, FiSend } from "react-icons/fi";
 
 function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
@@ -44,12 +44,12 @@ export default function ContactPage() {
 
             <div className="contact-info-list">
               <a href={`mailto:${SOCIAL_LINKS.email}`} className="contact-info-item">
-                <span className="contact-info-icon"><AtSign aria-hidden="true" /></span>
+                <span className="contact-info-icon"><FiAtSign aria-hidden="true" /></span>
                 <span><small>Email</small><strong>{SOCIAL_LINKS.email}</strong></span>
-                <ArrowUpRight aria-hidden="true" />
+                <FiArrowUpRight aria-hidden="true" />
               </a>
               <div className="contact-info-item">
-                <span className="contact-info-icon"><Clock3 aria-hidden="true" /></span>
+                <span className="contact-info-icon"><FiClock aria-hidden="true" /></span>
                 <span><small>Availability</small><strong>Open to opportunities</strong></span>
               </div>
             </div>
@@ -86,8 +86,8 @@ export default function ContactPage() {
               <textarea name="message" placeholder="Tell me a little about your idea..." rows={6} required />
             </label>
             <button className="contact-submit" type="submit">
-              <Send aria-hidden="true" /> {sent ? "Opening your email..." : "Prepare message"}
-              <ArrowUpRight aria-hidden="true" />
+              <FiSend aria-hidden="true" /> {sent ? "Opening your email..." : "Prepare message"}
+              <FiArrowUpRight aria-hidden="true" />
             </button>
             <p className="contact-form-note">
               No account or form service required. Your message stays in your email client until you send it.

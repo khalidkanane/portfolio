@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Manrope, Sora } from "next/font/google";
 import Header from "@/components/Header";
 import { AUTHOR_LOCATION, SOCIAL_LINKS } from "@/lib/constants";
+import { FaGithub, FaKaggle, FaLinkedinIn } from "react-icons/fa6";
+import { FiArrowUpRight, FiMapPin } from "react-icons/fi";
 import "./globals.css";
 
 const sora = Sora({
@@ -37,13 +39,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <p className="eyebrow">Let&apos;s connect</p>
               <h2>Have an idea? Let&apos;s make it real.</h2>
               <a className="footer-email" href={`mailto:${SOCIAL_LINKS.email}`}>
-                {SOCIAL_LINKS.email} <span>↗</span>
+                {SOCIAL_LINKS.email} <FiArrowUpRight aria-hidden="true" />
               </a>
             </div>
             <div className="footer-details">
               <div>
                 <span className="footer-label">Based in</span>
-                <strong>{AUTHOR_LOCATION}</strong>
+                <strong><FiMapPin aria-hidden="true" /> {AUTHOR_LOCATION}</strong>
               </div>
               <div>
                 <span className="footer-label">Availability</span>
@@ -52,16 +54,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <div className="footer-socials">
                 <span className="footer-label">Find me online</span>
                 <div>
-                  <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer">GitHub</a>
-                  <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-                  <a href={SOCIAL_LINKS.kaggle} target="_blank" rel="noreferrer">Kaggle</a>
+                  <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer"><FaGithub aria-hidden="true" /> GitHub</a>
+                  <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer"><FaLinkedinIn aria-hidden="true" /> LinkedIn</a>
+                  <a href={SOCIAL_LINKS.kaggle} target="_blank" rel="noreferrer"><FaKaggle aria-hidden="true" /> Kaggle</a>
                 </div>
               </div>
             </div>
             <div className="footer-bottom">
               <span>© 2026 Khalid Kanane</span>
               <span>Designed &amp; built with care</span>
-              <a href="#top">Back to top ↑</a>
+              <a href="#top">Back to top <FiArrowUpRight aria-hidden="true" /></a>
             </div>
           </div>
         </footer>
