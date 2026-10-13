@@ -1,20 +1,20 @@
 import Link from "next/link";
 import {
-  ArrowUpRight,
-  BriefcaseBusiness,
-  CircleUserRound,
-  Code2,
-  FileText,
-  Home,
-  AtSign,
-} from "lucide-react";
+  FiArrowUpRight,
+  FiAtSign,
+  FiBriefcase,
+  FiCode,
+  FiFileText,
+  FiHome,
+  FiUser,
+} from "react-icons/fi";
 
 const navItems = [
-  { label: "Home", href: "/", icon: Home },
-  { label: "About", href: "/about", icon: CircleUserRound },
-  { label: "Skills", href: "/skills", icon: Code2 },
-  { label: "Work", href: "/projects", icon: BriefcaseBusiness },
-  { label: "Contact", href: "/contact", icon: AtSign },
+  { label: "Home", href: "/", icon: FiHome },
+  { label: "About", href: "/about", icon: FiUser },
+  { label: "Skills", href: "/skills", icon: FiCode },
+  { label: "Work", href: "/projects", icon: FiBriefcase },
+  { label: "Contact", href: "/contact", icon: FiAtSign },
 ];
 
 export default function Header() {
@@ -43,7 +43,7 @@ export default function Header() {
           ))}
         </ul>
         <Link className="hire-link" href="/contact">
-          <FileText aria-hidden="true" /> Hire me <ArrowUpRight aria-hidden="true" />
+          <FiFileText aria-hidden="true" /> Hire me <FiArrowUpRight aria-hidden="true" />
         </Link>
       </nav>
     </header>

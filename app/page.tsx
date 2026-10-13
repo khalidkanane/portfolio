@@ -5,12 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { PROJECTS } from "@/lib/projects";
 import { SOCIAL_LINKS } from "@/lib/constants";
-import {
-  ArrowUpRight,
-  AtSign,
-  Code2,
-  Download,
-} from "lucide-react";
+import { FiArrowUpRight, FiAtSign, FiCode, FiDownload } from "react-icons/fi";
 
 const stats = [
   { value: "12", label: "Years of experience" },
@@ -120,17 +115,17 @@ export default function Home() {
               whileHover={{ y: -3, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Download aria-hidden="true" /> Download CV <ArrowUpRight aria-hidden="true" />
+              <FiDownload aria-hidden="true" /> Download CV <FiArrowUpRight aria-hidden="true" />
             </motion.a>
             <motion.div className="social-buttons" aria-label="Social links" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.5 }}>
               <motion.a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" aria-label="GitHub" whileHover={{ y: -4, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
-                <Code2 aria-hidden="true" />
+                <FiCode aria-hidden="true" />
               </motion.a>
               <motion.a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" whileHover={{ y: -4, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
-                <AtSign aria-hidden="true" />
+                <FiAtSign aria-hidden="true" />
               </motion.a>
               <motion.a href={SOCIAL_LINKS.kaggle} target="_blank" rel="noreferrer" aria-label="Kaggle" whileHover={{ y: -4, scale: 1.05 }} whileTap={{ scale: 0.96 }}>
-                <ArrowUpRight aria-hidden="true" />
+                <FiArrowUpRight aria-hidden="true" />
               </motion.a>
             </motion.div>
           </div>
