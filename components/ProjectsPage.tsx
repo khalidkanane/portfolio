@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { PROJECTS } from "@/lib/projects";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
@@ -92,6 +93,55 @@ export default function ProjectsPage() {
             </article>
           ))}
         </div>
+
+        <section className="projects-contributions" aria-labelledby="contributions-title">
+          <div className="projects-contributions-heading">
+            <div>
+              <p className="eyebrow">02 / Open source activity</p>
+              <h2 id="contributions-title">Building in public.</h2>
+              <p>Explore the code, experiments, and consistent progress behind my projects.</p>
+            </div>
+            <a
+              className="text-link"
+              href={SOCIAL_LINKS.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View GitHub profile <span>↗</span>
+            </a>
+          </div>
+
+          <a
+            className="projects-contributions-card"
+            href={`${SOCIAL_LINKS.github}?tab=overview`}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="View Khalid Kanane's GitHub contribution activity"
+          >
+            <div className="projects-contributions-meta">
+              <span>GitHub contributions</span>
+              <span>@khalidkanane</span>
+            </div>
+            <div className="projects-contributions-chart">
+              <img
+                src="https://ghchart.rshah.org/1769e0/khalidkanane"
+                alt="Khalid Kanane's GitHub contribution activity over the last year"
+                loading="lazy"
+              />
+            </div>
+            <div className="projects-contributions-scale">
+              <span>Less</span>
+              <span className="contribution-scale" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+                <i />
+                <i />
+              </span>
+              <span>More</span>
+            </div>
+          </a>
+        </section>
       </section>
     </main>
   );

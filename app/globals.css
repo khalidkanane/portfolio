@@ -2009,3 +2009,113 @@ body {
   .academic-step-content { padding: 1.25rem; }
   .academic-step p { font-size: 0.88rem; }
 }
+
+.projects-contributions {
+  border-top: 1px solid #dbe8f5;
+  margin-top: clamp(4rem, 8vw, 7rem);
+  padding-top: clamp(3rem, 6vw, 5rem);
+}
+
+.projects-contributions-heading {
+  align-items: end;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.projects-contributions-heading h2 {
+  color: #0b1b33;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.07em;
+  line-height: 1;
+  margin: 0 0 0.8rem;
+}
+
+.projects-contributions-heading > div > p:last-child {
+  color: #58708d;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 520px;
+}
+
+.projects-contributions-card {
+  background: #ffffff;
+  border: 1px solid #c9def2;
+  border-radius: 6px;
+  box-shadow: 0 18px 45px rgba(23, 105, 224, 0.1);
+  display: block;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.projects-contributions-card:hover {
+  border-color: #1769e0;
+  box-shadow: 0 22px 52px rgba(23, 105, 224, 0.16);
+  transform: translateY(-3px);
+}
+
+.projects-contributions-meta,
+.projects-contributions-scale {
+  align-items: center;
+  color: #0b1b33;
+  display: flex;
+  font-size: 0.78rem;
+  justify-content: space-between;
+}
+
+.projects-contributions-meta span:last-child,
+.projects-contributions-scale {
+  color: #58708d;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.68rem;
+}
+
+.projects-contributions-chart {
+  background: #f7fbff;
+  border: 1px solid #dbe8f5;
+  border-radius: 4px;
+  margin: 1rem 0 0.75rem;
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.projects-contributions-chart img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  min-width: 700px;
+  width: 100%;
+}
+
+.projects-contributions-scale {
+  justify-content: end;
+  gap: 0.4rem;
+}
+
+.contribution-scale {
+  display: inline-flex;
+  gap: 0.2rem;
+}
+
+.contribution-scale i {
+  background: #dbe8f5;
+  border-radius: 0.15rem;
+  height: 0.65rem;
+  width: 0.65rem;
+}
+
+.contribution-scale i:nth-child(2) { background: #bfdbfe; }
+.contribution-scale i:nth-child(3) { background: #60a5fa; }
+.contribution-scale i:nth-child(4) { background: #1769e0; }
+.contribution-scale i:nth-child(5) { background: #0b3b70; }
+
+@media (max-width: 760px) {
+  .projects-contributions-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+}
