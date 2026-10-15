@@ -1617,8 +1617,67 @@ body {
   background:
     radial-gradient(circle at 12% 10%, rgba(22, 119, 232, 0.1), transparent 28%),
     #f7fbff;
+  isolation: isolate;
   min-height: 680px;
+  overflow: hidden;
   padding: clamp(4rem, 8vw, 7rem) 0;
+  position: relative;
+}
+
+.contact-page > *:not(.contact-orb) {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-orb {
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.5;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.contact-orb-one {
+  animation: contactOrbOne 15s ease-in-out infinite alternate;
+  background: rgba(23, 105, 224, 0.2);
+  height: 22rem;
+  left: -8rem;
+  top: -5rem;
+  width: 22rem;
+}
+
+.contact-orb-two {
+  animation: contactOrbTwo 18s ease-in-out infinite alternate;
+  background: rgba(56, 189, 248, 0.18);
+  height: 18rem;
+  right: 5%;
+  top: 25%;
+  width: 18rem;
+}
+
+.contact-orb-three {
+  animation: contactOrbThree 16s ease-in-out infinite alternate;
+  background: rgba(129, 140, 248, 0.16);
+  bottom: -8rem;
+  height: 24rem;
+  left: 35%;
+  width: 24rem;
+}
+
+@keyframes contactOrbOne {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(7rem, 4rem, 0) scale(1.15); }
+}
+
+@keyframes contactOrbTwo {
+  0% { transform: translate3d(0, 0, 0) scale(0.9); }
+  100% { transform: translate3d(-5rem, 5rem, 0) scale(1.18); }
+}
+
+@keyframes contactOrbThree {
+  0% { transform: translate3d(0, 2rem, 0) scale(1); }
+  100% { transform: translate3d(6rem, -4rem, 0) scale(1.12); }
 }
 
 .contact-layout {
@@ -1688,6 +1747,48 @@ body {
 .contact-intro .contact-links a {
   border-bottom-color: #b7d7f3;
   color: var(--reference-cyan);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  position: relative;
+}
+
+.contact-intro .contact-links a > span {
+  margin-left: 0;
+}
+
+.contact-intro .contact-links a small {
+  color: var(--reference-muted);
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0;
+  line-height: 1.4;
+  max-height: 0;
+  max-width: 185px;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(-0.35rem);
+  transition: max-height 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.contact-intro .contact-links a:hover small,
+.contact-intro .contact-links a:focus-visible small {
+  max-height: 3rem;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-orb-one,
+  .contact-orb-two,
+  .contact-orb-three {
+    animation: none;
+  }
+
+  .contact-intro .contact-links a small {
+    transition: none;
+  }
 }
 
 .contact-form {

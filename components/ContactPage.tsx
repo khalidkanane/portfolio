@@ -34,6 +34,9 @@ export default function ContactPage() {
   return (
     <main>
       <section className="contact-page">
+        <div className="contact-orb contact-orb-one" aria-hidden="true" />
+        <div className="contact-orb contact-orb-two" aria-hidden="true" />
+        <div className="contact-orb contact-orb-three" aria-hidden="true" />
         <div className="section-shell contact-layout">
           <div className="contact-intro">
             <SectionHeading eyebrow="01 / Contact" title="Let&apos;s build something useful." />
@@ -55,10 +58,22 @@ export default function ContactPage() {
             </div>
 
             <div className="contact-links">
-              <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
-              <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
-              <a href={SOCIAL_LINKS.kaggle} target="_blank" rel="noreferrer">Kaggle <span>↗</span></a>
-              <a href={SOCIAL_LINKS.cv} target="_blank" rel="noreferrer">CV <span>↗</span></a>
+              <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer">
+                <span>GitHub ↗</span>
+                <small>Explore my code and open-source projects</small>
+              </a>
+              <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer">
+                <span>LinkedIn ↗</span>
+                <small>Connect with me professionally</small>
+              </a>
+              <a href={SOCIAL_LINKS.kaggle} target="_blank" rel="noreferrer">
+                <span>Kaggle ↗</span>
+                <small>See my data and machine-learning work</small>
+              </a>
+              <a href={SOCIAL_LINKS.cv} target="_blank" rel="noreferrer">
+                <span>CV ↗</span>
+                <small>Download my experience and skills</small>
+              </a>
             </div>
           </div>
 
