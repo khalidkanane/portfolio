@@ -34,9 +34,6 @@ export default function ContactPage() {
   return (
     <main>
       <section className="contact-page">
-        <div className="contact-orb contact-orb-one" aria-hidden="true" />
-        <div className="contact-orb contact-orb-two" aria-hidden="true" />
-        <div className="contact-orb contact-orb-three" aria-hidden="true" />
         <div className="section-shell contact-layout">
           <div className="contact-intro">
             <SectionHeading eyebrow="01 / Contact" title="Let&apos;s build something useful." />

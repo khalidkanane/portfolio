@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Sora } from "next/font/google";
 import Header from "@/components/Header";
+import AnimatedBackground from "@/components/AnimatedBackground";
 import { AUTHOR_LOCATION, SOCIAL_LINKS } from "@/lib/constants";
 import { FaGithub, FaKaggle, FaLinkedinIn } from "react-icons/fa6";
 import { FiArrowUpRight, FiMapPin } from "react-icons/fi";
@@ -29,12 +30,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${sora.variable} ${manrope.variable} h-full antialiased`}
+    data-theme="light"
     >
       <body id="top" className="min-h-full flex flex-col">
+        <AnimatedBackground />
         <Header />
         <div className="flex-1">{children}</div>
-        <footer className="site-footer">
-          <div className="section-shell footer-grid">
+        <footer className="site-footer ">
+          <div className="section-shell footer-grid ">
             <div className="footer-intro">
               <p className="eyebrow">Let&apos;s connect</p>
               <h2>Have an idea? Let&apos;s make it real.</h2>

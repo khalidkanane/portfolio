@@ -20,7 +20,7 @@ const navItems = [
 export default function Header() {
   return (
     <header className="site-header">
-      <nav className="section-shell nav-inner">
+      <nav className="section-shell nav-inner bg-color: var(--color-bg-1) border-b border-color: var(--color-border-1) ">
         <Link
           href="/"
           className="brand"

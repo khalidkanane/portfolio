@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
+
 
 :root {
   --font-geist-mono: var(--font-roboto);
@@ -852,9 +852,9 @@ body {
 .contact-links a { border-color: rgba(255, 255, 255, 0.55); color: #ffffff; }
 
 .site-footer {
-  background: #ffffff;
+  background: #190dc4;
   border-top: 1px solid #dbe8f5;
-  color: #58708d;
+  color: #0d64ce;
 }
 .footer-grid { display: grid; gap: 3.5rem 5rem; grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr); padding-bottom: 2rem; padding-top: 4.5rem; }
 .footer-intro h2 { color: #0b1b33; font-family: var(--font-sora), sans-serif; font-size: clamp(2rem, 4vw, 3.8rem); letter-spacing: -0.07em; line-height: 0.98; margin: 0 0 1.75rem; max-width: 600px; }
@@ -880,6 +880,129 @@ body {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 }
 
+[data-theme="light"] body {
+  background: #f7fbff;
+  color: #0b1b33;
+}
+
+[data-theme="light"] .animated-background {
+  background: #ffffff;
+}
+
+[data-theme="light"] .animated-background::before {
+  background:
+    radial-gradient(circle at 18% 16%, rgba(56, 189, 248, 0.16), transparent 25%),
+    radial-gradient(circle at 84% 22%, rgba(129, 140, 248, 0.14), transparent 28%),
+    radial-gradient(circle at 48% 88%, rgba(37, 99, 235, 0.1), transparent 30%);
+}
+
+[data-theme="light"] .animated-background-grid {
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.055) 1px, transparent 1px);
+}
+
+[data-theme="light"] .animated-background-particles {
+  background-image:
+    radial-gradient(circle, rgba(37, 99, 235, 0.34) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(6, 182, 212, 0.3) 0 1px, transparent 1.5px);
+}
+
+[data-theme="light"] .site-header {
+  background: rgba(247, 251, 255, 0.86);
+  border-bottom-color: #dbe8f5;
+}
+
+[data-theme="light"] .brand,
+[data-theme="light"] .brand-copy {
+  color: #0b1b33;
+}
+
+[data-theme="light"] .nav-links {
+  background: rgba(255, 255, 255, 0.86);
+  border-color: #c9def2;
+}
+
+[data-theme="light"] .nav-links a {
+  color: #58708d;
+}
+
+[data-theme="light"] .nav-links a:hover,
+[data-theme="light"] .nav-links li:first-child a {
+  background: #1769e0;
+  color: #ffffff;
+}
+
+[data-theme="light"] .hire-link,
+[data-theme="light"] .theme-toggle {
+  background: #ffffff;
+  border-color: #c9def2;
+  color: #1769e0;
+}
+
+[data-theme="light"] .home-page {
+  background-color: rgba(247, 251, 255, 0.82);
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.045) 1px, transparent 1px);
+}
+
+[data-theme="light"] .hero-shell {
+  background:
+    radial-gradient(circle at 78% 35%, rgba(26, 102, 193, 0.12), transparent 24%),
+    linear-gradient(115deg, rgba(247, 251, 255, 0.92), rgba(255, 255, 255, 0.72));
+}
+
+[data-theme="light"] .hero-copy h1,
+[data-theme="light"] .section-header h2,
+[data-theme="light"] .about-copy-home h2,
+[data-theme="light"] .section-heading h2,
+[data-theme="light"] .project-home-card h3,
+[data-theme="light"] .skill-card h3,
+[data-theme="light"] .footer-intro h2 {
+  color: #0b1b33;
+}
+
+[data-theme="light"] .hero-lede,
+[data-theme="light"] .about-copy-home p,
+[data-theme="light"] .project-home-card p,
+[data-theme="light"] .stat-item span,
+[data-theme="light"] .about-copy,
+[data-theme="light"] .project-info p,
+[data-theme="light"] .timeline-item p,
+[data-theme="light"] .education-line p {
+  color: #58708d;
+}
+
+[data-theme="light"] .tech-pill,
+[data-theme="light"] .skill-card,
+[data-theme="light"] .project-home-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .contact-form {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: #dbe8f5;
+  box-shadow: 0 16px 38px rgba(49, 97, 148, 0.08);
+}
+
+[data-theme="light"] .project-preview {
+  background: #e8f3ff;
+}
+
+[data-theme="light"] .contact-page {
+  background: rgba(247, 251, 255, 0.86);
+}
+
+[data-theme="light"] .site-footer {
+  background: rgba(255, 255, 255, 0.9);
+  border-top-color: #dbe8f5;
+}
+
+@media (max-width: 760px) {
+  .theme-toggle {
+    margin-left: auto;
+  }
+}
+
 /* Reference-inspired dark portfolio shell */
 :root {
   --reference-bg: #071126;
@@ -894,11 +1017,111 @@ body {
 body {
   background: var(--reference-bg);
   color: var(--reference-text);
+  isolation: isolate;
+  position: relative;
+}
+
+.animated-background {
+  background: #071126;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  z-index: 0;
+}
+
+.animated-background::before {
+  background:
+    radial-gradient(circle at 18% 16%, rgba(56, 189, 248, 0.12), transparent 25%),
+    radial-gradient(circle at 84% 22%, rgba(129, 140, 248, 0.1), transparent 28%),
+    radial-gradient(circle at 48% 88%, rgba(37, 99, 235, 0.08), transparent 30%);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.animated-background-grid {
+  background-image:
+    linear-gradient(rgba(140, 173, 224, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140, 173, 224, 0.045) 1px, transparent 1px);
+  background-size: 52px 52px;
+  inset: 0;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 82%);
+  opacity: 0.7;
+  position: absolute;
+}
+
+.animated-background-orb {
+  border-radius: 50%;
+  filter: blur(58px);
+  opacity: 0.5;
+  position: absolute;
+  will-change: transform;
+}
+
+.animated-background-orb-one {
+  animation: backgroundOrbOne 24s ease-in-out infinite alternate;
+  background: rgba(34, 211, 238, 0.26);
+  height: 28rem;
+  left: -10rem;
+  top: 8%;
+  width: 28rem;
+}
+
+.animated-background-orb-two {
+  animation: backgroundOrbTwo 28s ease-in-out infinite alternate;
+  background: rgba(99, 102, 241, 0.2);
+  height: 24rem;
+  right: -8rem;
+  top: 35%;
+  width: 24rem;
+}
+
+.animated-background-orb-three {
+  animation: backgroundOrbThree 26s ease-in-out infinite alternate;
+  background: rgba(59, 130, 246, 0.18);
+  bottom: -12rem;
+  height: 30rem;
+  left: 38%;
+  width: 30rem;
+}
+
+.animated-background-particles {
+  background-image:
+    radial-gradient(circle, rgba(53, 199, 255, 0.3) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(129, 140, 248, 0.24) 0 1px, transparent 1.5px);
+  background-position: 8px 14px, 32px 46px;
+  background-size: 74px 82px, 116px 130px;
+  inset: 0;
+  opacity: 0.38;
+  position: absolute;
+}
+
+@keyframes backgroundOrbOne {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(18vw, 10vh, 0) scale(1.14); }
+}
+
+@keyframes backgroundOrbTwo {
+  from { transform: translate3d(0, 0, 0) scale(0.94); }
+  to { transform: translate3d(-14vw, 14vh, 0) scale(1.12); }
+}
+
+@keyframes backgroundOrbThree {
+  from { transform: translate3d(-5vw, 3vh, 0) scale(1); }
+  to { transform: translate3d(8vw, -12vh, 0) scale(1.16); }
 }
 
 .site-header {
   background: rgba(7, 17, 38, 0.92);
   border-bottom: 1px solid var(--reference-line);
+}
+
+body > .site-header,
+body > .flex-1,
+body > .site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 .nav-inner {
@@ -976,6 +1199,31 @@ body {
   color: #dbeeff;
   font-size: 0.65rem;
   padding: 0.62rem 1rem;
+}
+
+.theme-toggle {
+  align-items: center;
+  background: rgba(18, 32, 62, 0.86);
+  border: 1px solid var(--reference-line);
+  border-radius: 999px;
+  color: #dbeeff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.62rem;
+  font-weight: 700;
+  gap: 0.35rem;
+  padding: 0.62rem 0.75rem;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--reference-cyan);
+  transform: translateY(-1px);
+}
+
+.theme-toggle svg {
+  height: 0.85rem;
+  width: 0.85rem;
 }
 
 .home-page {
@@ -1614,70 +1862,9 @@ body {
 }
 
 .contact-page {
-  background:
-    radial-gradient(circle at 12% 10%, rgba(22, 119, 232, 0.1), transparent 28%),
-    #f7fbff;
-  isolation: isolate;
+  background: transparent;
   min-height: 680px;
-  overflow: hidden;
   padding: clamp(4rem, 8vw, 7rem) 0;
-  position: relative;
-}
-
-.contact-page > *:not(.contact-orb) {
-  position: relative;
-  z-index: 1;
-}
-
-.contact-orb {
-  border-radius: 50%;
-  filter: blur(2px);
-  opacity: 0.5;
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-}
-
-.contact-orb-one {
-  animation: contactOrbOne 15s ease-in-out infinite alternate;
-  background: rgba(23, 105, 224, 0.2);
-  height: 22rem;
-  left: -8rem;
-  top: -5rem;
-  width: 22rem;
-}
-
-.contact-orb-two {
-  animation: contactOrbTwo 18s ease-in-out infinite alternate;
-  background: rgba(56, 189, 248, 0.18);
-  height: 18rem;
-  right: 5%;
-  top: 25%;
-  width: 18rem;
-}
-
-.contact-orb-three {
-  animation: contactOrbThree 16s ease-in-out infinite alternate;
-  background: rgba(129, 140, 248, 0.16);
-  bottom: -8rem;
-  height: 24rem;
-  left: 35%;
-  width: 24rem;
-}
-
-@keyframes contactOrbOne {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  100% { transform: translate3d(7rem, 4rem, 0) scale(1.15); }
-}
-
-@keyframes contactOrbTwo {
-  0% { transform: translate3d(0, 0, 0) scale(0.9); }
-  100% { transform: translate3d(-5rem, 5rem, 0) scale(1.18); }
-}
-
-@keyframes contactOrbThree {
-  0% { transform: translate3d(0, 2rem, 0) scale(1); }
-  100% { transform: translate3d(6rem, -4rem, 0) scale(1.12); }
 }
 
 .contact-layout {
@@ -1780,12 +1967,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .contact-orb-one,
-  .contact-orb-two,
-  .contact-orb-three {
-    animation: none;
-  }
-
   .contact-intro .contact-links a small {
     transition: none;
   }
@@ -1890,6 +2071,122 @@ body {
 @media (max-width: 560px) {
   .contact-form-grid { grid-template-columns: 1fr; }
   .contact-info-item strong { font-size: 0.8rem; }
+}
+
+/* Final theme-aware shell and contact styles */
+.site-header {
+  background: rgba(7, 17, 38, 0.88);
+  border-bottom-color: var(--reference-line);
+}
+
+.nav-links {
+  background: rgba(18, 32, 62, 0.86);
+  border-color: var(--reference-line);
+}
+
+.nav-links a {
+  color: #b9c8df;
+}
+
+.nav-links a:hover,
+.nav-links li:first-child a {
+  background: #f6f8ff;
+  color: #172541;
+}
+
+.hire-link,
+.theme-toggle {
+  background: rgba(22, 52, 84, 0.92);
+  border-color: rgba(53, 199, 255, 0.3);
+  color: #e9f5ff;
+}
+
+.contact-page {
+  color: var(--reference-text);
+}
+
+.contact-info-item {
+  color: var(--reference-text);
+}
+
+.contact-form {
+  background: rgba(13, 27, 56, 0.88);
+  border-color: var(--reference-line);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form label {
+  color: #b9c8df;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: rgba(7, 17, 38, 0.75);
+  border-color: var(--reference-line);
+  color: var(--reference-text);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #7f91ad;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: rgba(7, 17, 38, 0.92);
+}
+
+[data-theme="light"] .site-header {
+  background: rgba(247, 251, 255, 0.88);
+  border-bottom-color: #dbe8f5;
+}
+
+[data-theme="light"] .nav-links {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: #c9def2;
+}
+
+[data-theme="light"] .nav-links a {
+  color: #58708d;
+}
+
+[data-theme="light"] .nav-links a:hover,
+[data-theme="light"] .nav-links li:first-child a {
+  background: #1769e0;
+  color: #ffffff;
+}
+
+[data-theme="light"] .hire-link,
+[data-theme="light"] .theme-toggle {
+  background: #ffffff;
+  border-color: #c9def2;
+  color: #1769e0;
+}
+
+[data-theme="light"] .contact-page {
+  color: #0b1b33;
+}
+
+[data-theme="light"] .contact-form {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: #dbe8f5;
+  box-shadow: 0 24px 60px rgba(48, 109, 171, 0.1);
+}
+
+[data-theme="light"] .contact-form label {
+  color: #365779;
+}
+
+[data-theme="light"] .contact-form input,
+[data-theme="light"] .contact-form textarea {
+  background: #f8fbff;
+  border-color: #d5e5f3;
+  color: #0b1b33;
+}
+
+[data-theme="light"] .contact-form input:focus,
+[data-theme="light"] .contact-form textarea:focus {
+  background: #ffffff;
 }
 
 .skills-section {
@@ -2218,5 +2515,405 @@ body {
     align-items: start;
     flex-direction: column;
     gap: 1.25rem;
+  }
+}
+
+/* Keep the dark theme text high-contrast, including the light-mode page sections. */
+:root:not([data-theme="light"]) body {
+  color: #ffffff;
+}
+
+:root:not([data-theme="light"]) .nav-links a,
+:root:not([data-theme="light"]) .hire-link,
+:root:not([data-theme="light"]) .theme-toggle,
+:root:not([data-theme="light"]) .contact-page,
+:root:not([data-theme="light"]) .contact-info-item,
+:root:not([data-theme="light"]) .contact-form-heading span,
+:root:not([data-theme="light"]) .contact-form label,
+:root:not([data-theme="light"]) .contact-form input,
+:root:not([data-theme="light"]) .contact-form textarea,
+:root:not([data-theme="light"]) .projects-contributions-heading h2,
+:root:not([data-theme="light"]) .projects-contributions-meta {
+  color: #ffffff;
+}
+
+:root:not([data-theme="light"]) .contact-lede,
+:root:not([data-theme="light"]) .contact-info-item small,
+:root:not([data-theme="light"]) .contact-form-heading p,
+:root:not([data-theme="light"]) .contact-form-note,
+:root:not([data-theme="light"]) .contact-intro .contact-links a small,
+:root:not([data-theme="light"]) .projects-contributions-heading > div > p:last-child,
+:root:not([data-theme="light"]) .projects-contributions-meta span:last-child,
+:root:not([data-theme="light"]) .projects-contributions-scale {
+  color: #d7e4f5;
+}
+
+:root:not([data-theme="light"]) .contact-form input,
+:root:not([data-theme="light"]) .contact-form textarea {
+  background: rgba(7, 17, 38, 0.92);
+  border-color: rgba(140, 173, 224, 0.3);
+}
+
+:root:not([data-theme="light"]) .contact-form input::placeholder,
+:root:not([data-theme="light"]) .contact-form textarea::placeholder {
+  color: #aebed3;
+}
+
+:root:not([data-theme="light"]) .projects-contributions {
+  border-top-color: var(--reference-line);
+}
+
+:root:not([data-theme="light"]) .projects-contributions-card {
+  background: rgba(13, 27, 56, 0.9);
+  border-color: var(--reference-line);
+}
+
+:root:not([data-theme="light"]) .projects-contributions-chart {
+  background: rgba(7, 17, 38, 0.85);
+  border-color: var(--reference-line);
+}
+
+/* Light theme is the permanent site theme. */
+html[data-theme="light"] body {
+  background: #f7fbff;
+  color: #0b1b33;
+}
+
+html[data-theme="light"] .animated-background {
+  background: #ffffff;
+}
+
+html[data-theme="light"] .site-header {
+  background: rgba(247, 251, 255, 0.92);
+  border-bottom-color: #dbe8f5;
+}
+
+html[data-theme="light"] .brand,
+html[data-theme="light"] .brand-copy,
+html[data-theme="light"] .nav-links a,
+html[data-theme="light"] .site-footer {
+  color: #0b1b33;
+}
+
+html[data-theme="light"] .nav-links {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: #c9def2;
+}
+
+html[data-theme="light"] .nav-links a:hover,
+html[data-theme="light"] .nav-links li:first-child a {
+  background: #1769e0;
+  color: #ffffff;
+}
+
+html[data-theme="light"] .home-page {
+  background-color: rgba(247, 251, 255, 0.84);
+}
+
+html[data-theme="light"] .hero-shell {
+  background: transparent;
+}
+
+html[data-theme="light"] .hero-shell::before {
+  background:
+    linear-gradient(90deg, rgba(247, 251, 255, 0.9) 0%, rgba(247, 251, 255, 0.58) 48%, rgba(247, 251, 255, 0.24) 100%),
+    url("/hero-geometric-background.png") center / cover no-repeat;
+}
+
+html[data-theme="light"] .hero-copy h1,
+html[data-theme="light"] .section-header h2,
+html[data-theme="light"] .section-heading h2,
+html[data-theme="light"] .about-copy-home h2,
+html[data-theme="light"] .project-home-card h3,
+html[data-theme="light"] .skill-card h3,
+html[data-theme="light"] .project-info h2,
+html[data-theme="light"] .footer-intro h2 {
+  color: #0b1b33;
+}
+
+html[data-theme="light"] .hero-lede,
+html[data-theme="light"] .about-copy-home p,
+html[data-theme="light"] .project-home-card p,
+html[data-theme="light"] .project-info p,
+html[data-theme="light"] .skill-card li,
+html[data-theme="light"] .stat-item span,
+html[data-theme="light"] .about-copy,
+html[data-theme="light"] .timeline-item p,
+html[data-theme="light"] .education-line p {
+  color: #58708d;
+}
+
+html[data-theme="light"] .tech-pill,
+html[data-theme="light"] .skill-card,
+html[data-theme="light"] .project-home-card,
+html[data-theme="light"] .project-card,
+html[data-theme="light"] .competency-card,
+html[data-theme="light"] .academic-step-content,
+html[data-theme="light"] .contact-form {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: #dbe8f5;
+  box-shadow: 0 16px 38px rgba(49, 97, 148, 0.08);
+}
+
+html[data-theme="light"] .contact-page {
+  color: #0b1b33;
+}
+
+html[data-theme="light"] .contact-form label {
+  color: #365779;
+}
+
+html[data-theme="light"] .contact-form input,
+html[data-theme="light"] .contact-form textarea {
+  background: #f8fbff;
+  border-color: #d5e5f3;
+  color: #0b1b33;
+}
+
+.hero-shell {
+  background: transparent;
+  isolation: isolate;
+}
+
+.hero-shell::before,
+.hero-shell::after {
+  content: "";
+  bottom: 0;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  right: auto;
+  transform: translateX(-50%);
+  top: 0;
+  width: 100vw;
+  z-index: 0;
+}
+
+.hero-shell::before {
+  background:
+    linear-gradient(90deg, rgba(7, 17, 38, 0.88) 0%, rgba(7, 17, 38, 0.58) 48%, rgba(7, 17, 38, 0.34) 100%),
+    url("/hero-geometric-background.png") center / cover no-repeat;
+  inset-block: 0;
+}
+
+.hero-shell::after {
+  background: linear-gradient(180deg, transparent 65%, rgba(7, 17, 38, 0.48));
+}
+
+[data-theme="light"] .hero-shell {
+  background: transparent;
+}
+
+[data-theme="light"] .hero-shell::before {
+  background:
+    linear-gradient(90deg, rgba(247, 251, 255, 0.88) 0%, rgba(247, 251, 255, 0.56) 48%, rgba(247, 251, 255, 0.24) 100%),
+    url("/hero-geometric-background.png") center / cover no-repeat;
+}
+
+[data-theme="light"] .hero-shell::after {
+  background: linear-gradient(180deg, transparent 65%, rgba(247, 251, 255, 0.42));
+}
+
+.hero-shell > * {
+  position: relative;
+  z-index: 1;
+}
+
+:root:not([data-theme="light"]) {
+  --reference-text: #ffffff;
+  --reference-muted: #ffffff;
+  --text-muted: #ffffff;
+  --muted: #ffffff;
+  --foreground: #ffffff;
+}
+
+:root:not([data-theme="light"]) body,
+:root:not([data-theme="light"]) h1,
+:root:not([data-theme="light"]) h2,
+:root:not([data-theme="light"]) h3,
+:root:not([data-theme="light"]) h4,
+:root:not([data-theme="light"]) p,
+:root:not([data-theme="light"]) li,
+:root:not([data-theme="light"]) label,
+:root:not([data-theme="light"]) small,
+:root:not([data-theme="light"]) strong,
+:root:not([data-theme="light"]) .brand,
+:root:not([data-theme="light"]) .brand-copy,
+:root:not([data-theme="light"]) .nav-links a,
+:root:not([data-theme="light"]) .site-footer,
+:root:not([data-theme="light"]) .project-info p,
+:root:not([data-theme="light"]) .project-home-card p,
+:root:not([data-theme="light"]) .skill-card li,
+:root:not([data-theme="light"]) .about-copy,
+:root:not([data-theme="light"]) .about-copy-home p,
+:root:not([data-theme="light"]) .hero-lede,
+:root:not([data-theme="light"]) .stat-item span,
+:root:not([data-theme="light"]) .timeline-item p,
+:root:not([data-theme="light"]) .education-line p,
+:root:not([data-theme="light"]) .academic-step p,
+:root:not([data-theme="light"]) .projects-intro > p {
+  color: #ffffff;
+}
+
+/* Final permanent light-theme overrides. */
+html[data-theme="light"] body {
+  background: #f7fbff;
+  color: #0b1b33;
+}
+
+html[data-theme="light"] .site-header {
+  background: rgba(247, 251, 255, 0.92);
+  border-bottom-color: #dbe8f5;
+}
+
+html[data-theme="light"] .brand,
+html[data-theme="light"] .brand-copy,
+html[data-theme="light"] .nav-links a,
+html[data-theme="light"] .site-footer {
+  color: #0b1b33;
+}
+
+html[data-theme="light"] .nav-links {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: #c9def2;
+}
+
+html[data-theme="light"] .nav-links a:hover,
+html[data-theme="light"] .nav-links li:first-child a {
+  background: #1769e0;
+  color: #ffffff;
+}
+
+html[data-theme="light"] .home-page {
+  background-color: rgba(247, 251, 255, 0.84);
+}
+
+html[data-theme="light"] .hero-shell {
+  background: transparent;
+}
+
+html[data-theme="light"] .hero-shell::before {
+  background:
+    linear-gradient(90deg, rgba(247, 251, 255, 0.9) 0%, rgba(247, 251, 255, 0.58) 48%, rgba(247, 251, 255, 0.24) 100%),
+    url("/hero-geometric-background.png") center / cover no-repeat;
+}
+
+html[data-theme="light"] .hero-copy h1,
+html[data-theme="light"] .section-header h2,
+html[data-theme="light"] .section-heading h2,
+html[data-theme="light"] .about-copy-home h2,
+html[data-theme="light"] .project-home-card h3,
+html[data-theme="light"] .skill-card h3,
+html[data-theme="light"] .project-info h2,
+html[data-theme="light"] .footer-intro h2 {
+  color: #0b1b33;
+}
+
+html[data-theme="light"] .hero-lede,
+html[data-theme="light"] .about-copy-home p,
+html[data-theme="light"] .project-home-card p,
+html[data-theme="light"] .project-info p,
+html[data-theme="light"] .skill-card li,
+html[data-theme="light"] .stat-item span,
+html[data-theme="light"] .about-copy,
+html[data-theme="light"] .timeline-item p,
+html[data-theme="light"] .education-line p {
+  color: #58708d;
+}
+
+html[data-theme="light"] .tech-pill,
+html[data-theme="light"] .skill-card,
+html[data-theme="light"] .project-home-card,
+html[data-theme="light"] .project-card,
+html[data-theme="light"] .competency-card,
+html[data-theme="light"] .academic-step-content,
+html[data-theme="light"] .contact-form {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: #dbe8f5;
+  box-shadow: 0 16px 38px rgba(49, 97, 148, 0.08);
+}
+
+html[data-theme="light"] .contact-page {
+  color: #0b1b33;
+}
+
+html[data-theme="light"] .contact-form label {
+  color: #365779;
+}
+
+html[data-theme="light"] .contact-form input,
+html[data-theme="light"] .contact-form textarea {
+  background: #f8fbff;
+  border-color: #d5e5f3;
+  color: #0b1b33;
+}
+
+/* Natural portfolio background: add the photo at public/images/portfolio-background.webp. */
+.animated-background {
+  background: #f7fbff;
+}
+
+.animated-background::before,
+.animated-background::after {
+  display: none;
+}
+
+.hero-shell {
+  background: transparent;
+}
+
+.hero-shell::before {
+  animation: naturalHeroDrift 32s ease-in-out infinite alternate;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.58) 48%, rgba(239, 248, 255, 0.2) 100%),
+    url("/images/portfolio-background.webp") center / cover no-repeat;
+  transform: translateX(-50%) scale(1.02);
+  transform-origin: center;
+}
+
+.hero-shell::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(247, 251, 255, 0.48));
+}
+
+@keyframes naturalHeroDrift {
+  0% { transform: translateX(-50%) scale(1.02) translate3d(0, 0, 0); }
+  100% { transform: translateX(-50%) scale(1.08) translate3d(0, -0.8%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-shell::before {
+    animation: none;
+    transform: translateX(-50%) scale(1.02);
+  }
+}
+
+@keyframes portfolioBackgroundDrift {
+  0% { transform: scale(1.03) translate3d(0, 0, 0); }
+  100% { transform: scale(1.1) translate3d(0, -1.2%, 0); }
+}
+
+.portfolio-background-drift {
+  animation: portfolioBackgroundDrift 42s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.hero-shell,
+.home-page,
+.page-hero,
+.skills-section,
+.timeline-section,
+.contact-page {
+  background-color: transparent;
+}
+
+.hero-shell::before,
+.hero-shell::after {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-background-drift {
+    animation: none;
+    transform: scale(1.03);
   }
 }

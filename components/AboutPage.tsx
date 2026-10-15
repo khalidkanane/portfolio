@@ -25,11 +25,11 @@ export default function AboutPage() {
             create intelligent applications that solve real problems. I enjoy working with Next.js,
             TypeScript, Laravel, Java, Python, and AI-powered workflows.
           </p>
-          <div className="contact-links" style={{ marginTop: "24px" }}>
+          <div className=" text-black" style={{ marginTop: "24px" , display: "flex", gap: "16px"}}>
             <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer">
               GitHub <span>↗</span>
             </a>
-            <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer">
+            <a  className="" href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer">
               LinkedIn <span>↗</span>
             </a>
             <a href={SOCIAL_LINKS.cv} target="_blank" rel="noreferrer">
