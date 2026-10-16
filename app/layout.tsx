@@ -23,7 +23,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <AnimatedBackground />
         <Header />
         <div className="relative z-10 flex-1">{children}</div>
-        <footer className="relative z-10 border-t border-[#d9e7f5] bg-blue-800 text-[#b4c4db]">
+        <footer className="relative z-10 border-t border-[#d9e7f5] bg-blue-900 text-[#b4c4db]">
           <div className="mx-auto grid max-w-[1440px] gap-12 px-[clamp(24px,5vw,72px)] py-20 md:grid-cols-[1.2fr_1fr]">
             <div>
               <p className="mb-5 text-[0.65rem] font-extrabold uppercase tracking-[0.16em] text-[#35c7ff]">Let&apos;s connect</p>
