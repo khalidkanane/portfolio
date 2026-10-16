@@ -30,7 +30,7 @@ export function AboutPage() {
         <div className="about-copy">
           <p>I&apos;m Khalid Kanane, a Full Stack Developer and AI enthusiast focused on building modern, useful, and scalable digital products.</p>
           <p>My work blends frontend engineering, backend architecture, and machine learning ideas to create intelligent applications that solve real problems. I enjoy working with Next.js, TypeScript, Laravel, Java, Python, and AI-powered workflows.</p>
-          <div className="contact-links" style={{ marginTop: "24px" }}>
+          <div className="contact-links mt-6">
             <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
             <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
             <a href={SOCIAL_LINKS.cv} target="_blank" rel="noreferrer">CV <span>↗</span></a>

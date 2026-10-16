@@ -4,145 +4,14 @@ import { PROJECTS } from "@/lib/projects";
 import { SOCIAL_LINKS } from "@/lib/constants";
 
 function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
-  return (
-    <div className="section-heading">
-      <p className="eyebrow">{eyebrow}</p>
-      <h2>{title}</h2>
-    </div>
-  );
+  return <div><p className="mb-5 text-[0.65rem] font-extrabold uppercase tracking-[0.16em] text-[#1677e8]">{eyebrow}</p><h2 className="text-4xl font-semibold tracking-[-0.07em] text-[#10213d] md:text-6xl">{title}</h2></div>;
 }
 
 function ProjectPreview({ variant }: { variant: string }) {
-  return (
-    <div className={`project-preview project-preview-${variant}`} aria-hidden="true">
-      <div className="preview-topbar">
-        <span />
-        <span />
-        <span />
-      </div>
-      <div className="preview-content">
-        {variant === "library" && (
-          <>
-            <div className="preview-sidebar" />
-            <div className="book-row">
-              <i />
-              <i />
-              <i />
-            </div>
-            <div className="book-row short">
-              <i />
-              <i />
-              <i />
-            </div>
-          </>
-        )}
-        {variant === "food" && (
-          <>
-            <div className="food-title" />
-            <div className="food-grid">
-              <i />
-              <i />
-              <i />
-              <i />
-            </div>
-          </>
-        )}
-        {variant === "ml" && (
-          <>
-            <div className="chart chart-large" />
-            <div className="chart-row">
-              <div className="chart" />
-              <div className="chart" />
-            </div>
-          </>
-        )}
-      </div>
-    </div>
-  );
+  const background = variant === "library" ? "from-[#b9c7c5] to-[#267d40]" : variant === "food" ? "from-[#18242f] to-[#37546a]" : "from-[#27233c] to-[#9b6fc2]";
+  return <div className={`min-h-[245px] overflow-hidden rounded-xl bg-gradient-to-br ${background} p-4`} aria-hidden="true"><div className="flex gap-1"><i className="h-1.5 w-1.5 rounded-full bg-white/60" /><i className="h-1.5 w-1.5 rounded-full bg-white/60" /><i className="h-1.5 w-1.5 rounded-full bg-white/60" /></div><div className="mx-auto mt-4 h-[82%] w-4/5 rounded bg-[#080f0ccc] p-5"><div className="mb-4 h-2 w-2/5 bg-[#22c55e]" /><div className="flex flex-wrap gap-2">{[1, 2, 3, 4, 5, 6].map((item) => <i className={`h-12 w-[30%] rounded ${variant === "food" ? "bg-[#d28062]" : variant === "ml" ? "border border-[#506379] bg-[linear-gradient(to_top,#c4f35b_25%,transparent_25%)]" : "bg-[#d8ae83]"}`} key={item} />)}</div></div></div>;
 }
 
 export default function ProjectsPage() {
-  return (
-    <main>
-      <section className="section-shell page-hero projects-section">
-        <div className="projects-intro">
-          <SectionHeading eyebrow="01 / Selected work" title="Projects I&apos;m proud of." />
-          <p>
-            A few things I&apos;ve built while learning, experimenting, and solving real problems.
-          </p>
-        </div>
-        <div className="project-list">
-          {PROJECTS.map((project) => (
-            <article className="project-card" key={project.slug}>
-              <div className="project-info">
-                <span className="project-number">{project.number}</span>
-                <h2>{project.title}</h2>
-                <p>{project.description}</p>
-                <div className="tag-list">
-                  {project.technologies.map((tag) => (
-                    <Badge key={tag} variant="secondary">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-                <Link className="text-link" href={`/projects/${project.slug}`}>
-                  View project <span>↗</span>
-                </Link>
-              </div>
-              <ProjectPreview variant={project.variant} />
-            </article>
-          ))}
-        </div>
-
-        <section className="projects-contributions" aria-labelledby="contributions-title">
-          <div className="projects-contributions-heading">
-            <div>
-              <p className="eyebrow">02 / Open source activity</p>
-              <h2 id="contributions-title">Building in public.</h2>
-              <p>Explore the code, experiments, and consistent progress behind my projects.</p>
-            </div>
-            <a
-              className="text-link"
-              href={SOCIAL_LINKS.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              View GitHub profile <span>↗</span>
-            </a>
-          </div>
-
-          <a
-            className="projects-contributions-card"
-            href={`${SOCIAL_LINKS.github}?tab=overview`}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="View Khalid Kanane's GitHub contribution activity"
-          >
-            <div className="projects-contributions-meta">
-              <span>GitHub contributions</span>
-              <span>@khalidkanane</span>
-            </div>
-            <div className="projects-contributions-chart">
-              <img
-                src="https://ghchart.rshah.org/1769e0/khalidkanane"
-                alt="Khalid Kanane's GitHub contribution activity over the last year"
-                loading="lazy"
-              />
-            </div>
-            <div className="projects-contributions-scale">
-              <span>Less</span>
-              <span className="contribution-scale" aria-hidden="true">
-                <i />
-                <i />
-                <i />
-                <i />
-                <i />
-              </span>
-              <span>More</span>
-            </div>
-          </a>
-        </section>
-      </section>
-    </main>
-  );
+  return <main><section className="mx-auto max-w-[1440px] px-[clamp(24px,5vw,72px)] py-20 lg:py-32"><div className="grid gap-10 md:grid-cols-2 md:items-end"><SectionHeading eyebrow="01 / Selected work" title="Projects I&apos;m proud of." /><p className="max-w-xs leading-7 text-[#5b718e]">A few things I&apos;ve built while learning, experimenting, and solving real problems.</p></div><div className="mt-12 grid gap-4">{PROJECTS.map((project) => <article className="grid gap-8 rounded-2xl border border-[#d9e7f5] bg-white p-6 shadow-sm md:grid-cols-[0.8fr_1.2fr] md:p-9" key={project.slug}><div className="flex flex-col justify-center"><span className="text-xs font-bold tracking-[0.12em] text-[#1677e8]">{project.number}</span><h2 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-[#10213d]">{project.title}</h2><p className="mt-3 max-w-md text-sm leading-6 text-[#5b718e]">{project.description}</p><div className="mt-4 flex flex-wrap gap-2">{project.technologies.map((tag) => <Badge key={tag} variant="secondary">{tag}</Badge>)}</div><Link className="mt-6 inline-block text-xs font-bold uppercase tracking-[0.08em] text-[#1677e8]" href={`/projects/${project.slug}`}>View project ↗</Link></div><ProjectPreview variant={project.variant} /></article>)}</div><section className="mt-20 border-t border-[#d9e7f5] pt-16"><div className="flex flex-wrap items-end justify-between gap-6"><div><p className="mb-5 text-[0.65rem] font-extrabold uppercase tracking-[0.16em] text-[#1677e8]">02 / Open source activity</p><h2 className="text-4xl font-semibold tracking-[-0.06em] text-[#10213d]">Building in public.</h2><p className="mt-3 text-[#5b718e]">Explore the code, experiments, and consistent progress behind my projects.</p></div><a className="text-xs font-bold uppercase tracking-[0.08em] text-[#1677e8]" href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer">View GitHub profile ↗</a></div><a className="mt-8 block rounded-2xl border border-[#d9e7f5] bg-white p-5 shadow-sm" href={`${SOCIAL_LINKS.github}?tab=overview`} target="_blank" rel="noreferrer"><div className="flex justify-between text-sm text-[#5b718e]"><span>GitHub contributions</span><span>@khalidkanane</span></div><img className="mt-5 w-full" src="https://ghchart.rshah.org/1769e0/khalidkanane" alt="Khalid Kanane&apos;s GitHub contribution activity over the last year" loading="lazy" /></a></section></section></main>;
 }

@@ -128,9 +128,9 @@ const academicStory = [
 
 function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
-    <div className="section-heading">
-      <p className="eyebrow">{eyebrow}</p>
-      <h2>{title}</h2>
+    <div>
+      <p className="mb-5 text-[0.65rem] font-extrabold uppercase tracking-[0.16em] text-[#1677e8]">{eyebrow}</p>
+      <h2 className="max-w-3xl text-4xl font-semibold tracking-[-0.07em] text-[#10213d] md:text-6xl">{title}</h2>
     </div>
   );
 }
@@ -138,18 +138,18 @@ function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) 
 export default function SkillsPage() {
   return (
     <main>
-      <section className="section-shell page-hero skills-section">
+      <section className="mx-auto max-w-[1440px] px-[clamp(24px,5vw,72px)] py-20 lg:py-32">
         <SectionHeading
           eyebrow="01 / Competencies"
           title="What I can build with my skills."
         />
-        <div className="competency-grid">
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
           {competencies.map((competency, index) => {
             const Icon = competency.icon;
 
             return (
               <motion.article
-                className="competency-card"
+                className="min-h-[300px] rounded-3xl border border-[#d9e7f5] bg-gradient-to-br from-white to-[#f5faff] p-6 shadow-[0_16px_38px_rgba(48,109,171,0.08)] transition hover:-translate-y-2 hover:border-[#99c8ed] hover:shadow-[0_24px_50px_rgba(22,119,232,0.13)]"
                 key={competency.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -157,17 +157,17 @@ export default function SkillsPage() {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
                 whileHover={{ y: -8 }}
               >
-                <div className="competency-card-top">
-                  <span className="competency-icon"><Icon aria-hidden="true" /></span>
-                  <span className="competency-number">0{index + 1}</span>
+                <div className="mb-6 flex items-center justify-between">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[#c6e1f8] bg-[#e8f3ff] text-[#1677e8]"><Icon /></span>
+                  <span className="text-xs font-extrabold tracking-[0.14em] text-[#9ab2ca]">0{index + 1}</span>
                 </div>
-                <h3>{competency.title}</h3>
-                <p>{competency.description}</p>
-                <div className="competency-skills" aria-label={`${competency.title} skills`}>
+                <h3 className="mb-3 text-2xl font-semibold tracking-[-0.05em] text-[#10213d]">{competency.title}</h3>
+                <p className="max-w-xl text-sm leading-7 text-[#5b718e]">{competency.description}</p>
+                <div className="mt-7 flex flex-wrap gap-2" aria-label={`${competency.title} skills`}>
                   {competency.skills.map(([name, Icon]) => (
-                    <span className="skill-logo" key={name} title={name}>
-                      <b><Icon aria-hidden="true" /></b>
-                      <small>{name}</small>
+                    <span className="inline-flex items-center gap-2 rounded-xl border border-[#d4e5f3] bg-white px-2 py-1.5 text-[#476782]" key={name} title={name}>
+                      <b className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#e8f3ff] text-[#1677e8]"><Icon /></b>
+                      <small className="text-[0.65rem] font-bold">{name}</small>
                     </span>
                   ))}
                 </div>
@@ -177,29 +177,29 @@ export default function SkillsPage() {
         </div>
       </section>
 
-      <section className="academic-story section-shell" aria-labelledby="academic-story-title">
+      <section className="mx-auto max-w-[1440px] border-t border-[#d9e7f5] bg-gradient-to-b from-[#ebf6ff]/65 to-transparent px-[clamp(24px,5vw,72px)] py-20 lg:py-32" aria-labelledby="academic-story-title">
         <SectionHeading
           eyebrow="02 / Academic journey"
           title="Learning through curiosity, practice, and real projects."
         />
-        <div className="academic-timeline">
+        <div className="mt-12 ml-4 grid max-w-4xl gap-6 border-l border-[#c9dff3]">
           {academicStory.map((item, index) => (
             <motion.article
-              className="academic-step"
+              className="relative pl-9"
               key={item.title}
               initial={{ opacity: 0, x: -18 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.55, delay: index * 0.1 }}
             >
-              <div className="academic-marker" aria-hidden="true">
+              <div className="absolute -left-5 top-0 flex h-9 w-9 items-center justify-center rounded-full border border-[#b8d9f4] bg-[#e8f3ff] text-xs font-extrabold text-[#1677e8]" aria-hidden="true">
                 <span>{String(index + 1).padStart(2, "0")}</span>
               </div>
-              <div className="academic-step-content">
-                <span className="academic-period">{item.period}</span>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-                <span className="academic-focus"><FiStar aria-hidden="true" /> {item.focus}</span>
+              <div className="rounded-2xl border border-[#d9e7f5] bg-white/90 p-6 shadow-[0_16px_36px_rgba(48,109,171,0.07)]">
+                <span className="text-xs font-bold text-[#1677e8]">{item.period}</span>
+                <h3 className="mt-2 text-2xl font-semibold text-[#10213d]">{item.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-[#5b718e]">{item.description}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm text-[#1677e8]"><FiStar /> {item.focus}</span>
               </div>
             </motion.article>
           ))}
