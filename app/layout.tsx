@@ -24,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <div className="relative z-10 flex-1">{children}</div>
         <footer className="relative z-10 border-t border-[#d9e7f5] bg-blue-900 text-[#b4c4db]">
-          <div className="mx-auto grid max-w-[1440px] gap-12 px-[clamp(24px,5vw,72px)] py-20 md:grid-cols-[1.2fr_1fr]">
+          <div className="mx-auto grid max-w-360 gap-12 px-[clamp(24px,5vw,72px)] py-20 md:grid-cols-[1.2fr_1fr]">
             <div>
               <p className="mb-5 text-[0.65rem] font-extrabold uppercase tracking-[0.16em] text-[#35c7ff]">Let&apos;s connect</p>
               <h2 className="max-w-xl text-4xl font-semibold tracking-[-0.06em] text-white md:text-6xl">Have an idea? Let&apos;s make it real.</h2>

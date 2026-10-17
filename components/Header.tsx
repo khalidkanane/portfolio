@@ -29,7 +29,7 @@ export default function Header() {
     "flex items-center gap-2 rounded-xl px-4 py-3 text-sm text-[#5b718e] transition hover:bg-[#1677e8] hover:text-white";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#d9e7f5] bg-gradient-to-r from-blue-100 via-blue-200 to-blue-400 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-[#d9e7f5] bg-gradient-to-r from-blue-300 via-blue-200 to-blue-400 backdrop-blur-md">
       <nav className="mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link
@@ -54,7 +54,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop navigation */}
-        <ul className="hidden items-center gap-1 rounded-full border border-[#d9e7f5] bg-gradient-to-l from-blue-100 via-blue-200 to-blue-400 backdrop-blur-md p-1 lg:flex">
+        <ul className="hidden items-center gap-1 rounded-full border border-[#d9e7f5] bg-blue-50  p-1 lg:flex">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link
